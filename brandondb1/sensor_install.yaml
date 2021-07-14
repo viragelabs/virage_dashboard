@@ -1,0 +1,110 @@
+blueprint:
+  name: Door Contact & Motion Sensor Setup
+  description: Install a 433 MHz sensor
+  domain: automation
+  input: {}
+  source_url: https://raw.githubusercontent.com/brandondb1/blueprints/main/sensor_install.yaml
+trigger:
+- platform: mqtt
+  topic: tele/rfbridge/RESULT
+condition:
+  condition: and
+  conditions:
+  - condition: template
+    value_template: '{{trigger.payload_json.RfReceived.Sync | int > 12000 }}'
+  - condition: template
+    value_template: '{{trigger.payload_json.RfReceived.Sync | int < 15000 }}'
+  - condition: or
+    conditions:
+    - condition: template
+      value_template: '{{trigger.payload_json.RfReceived.Data[-1] == "E" }}'
+    - condition: template
+      value_template: '{{trigger.payload_json.RfReceived.Data[-1] == "B" }}'
+    - condition: template
+      value_template: '{{trigger.payload_json.RfReceived.Data[-1] == "6" }}'
+    - condition: template
+      value_template: '{{trigger.payload_json.RfReceived.Data[-1] == "A" }}'
+action:
+- choose:
+  - conditions:
+    - condition: and
+      conditions:
+      - condition: template
+        value_template: '{{trigger.payload_json.RfReceived.Sync | int > 12000 }}'
+      - condition: template
+        value_template: '{{trigger.payload_json.RfReceived.Sync | int < 13801 }}'
+      - condition: or
+        conditions:
+        - condition: template
+          value_template: '{{trigger.payload_json.RfReceived.Data[-1] == "E" }}'
+        - condition: template
+          value_template: '{{trigger.payload_json.RfReceived.Data[-1] == "B" }}'
+        - condition: template
+          value_template: '{{trigger.payload_json.RfReceived.Data[-1] == "6" }}'
+    sequence:
+    - service: mqtt.publish
+      data_template:
+        topic: '{{ ''homeassistant/binary_sensor/batt_state'' + trigger.payload_json.RfReceived.Data[:5]
+          + ''/config'' }}'
+        payload: "{\n  \"name\": \"{{ 'Motion Battery ' + trigger.payload_json.RfReceived.Data[:5]}}\"\
+          ,\n  \"stat_t\": \"~BATT_STATE\",\n  \"device_class\": \"battery\",\n  \"\
+          uniq_id\": \"{{ 'Batt-' + trigger.payload_json.RfReceived.Data[:5]}}\",\n\
+          \  \"device\": {\n    \"identifiers\": [\n      \"{{trigger.payload_json.RfReceived.Data[:5]}}\"\
+          \n    ],\n  \"name\": \"{{ 'Motion ' + trigger.payload_json.RfReceived.Data[:5]}}\"\
+          ,\n  \"model\": \"Motion Sensor\"\n,\n  \"manufacturer\": \"VirageLabs\"\
+          \n  },\n  \"~\": \"{{ trigger.payload_json.RfReceived.Data[:5] + '/tele/'\
+          \ }}\"\n}"
+        retain: true
+    - service: mqtt.publish
+      data_template:
+        topic: '{{ ''homeassistant/binary_sensor/motion_state'' + trigger.payload_json.RfReceived.Data[:5]
+          + ''/config'' }}'
+        payload: "{\n  \"name\": \"{{ 'Motion State ' + trigger.payload_json.RfReceived.Data[:5]}}\"\
+          ,\n  \"stat_t\": \"~MOTION_STATE\",\n  \"device_class\": \"motion\",\n \
+          \ \"off_delay\": \"5\",\n  \"uniq_id\": \"{{ 'State-' + trigger.payload_json.RfReceived.Data[:5]}}\"\
+          ,\n  \"device\": {\n    \"identifiers\": [\n      \"{{trigger.payload_json.RfReceived.Data[:5]}}\"\
+          \n    ]\n  },\n  \"~\": \"{{ trigger.payload_json.RfReceived.Data[:5] +\
+          \ '/tele/' }}\"\n}"
+        retain: true
+    - service: automation.turn_off
+      entity_id: automation.motion_sensor_auto_setup
+  - conditions:
+    - condition: and
+      conditions:
+      - condition: template
+        value_template: '{{trigger.payload_json.RfReceived.Sync | int > 13800 }}'
+      - condition: or
+        conditions:
+        - condition: template
+          value_template: '{{trigger.payload_json.RfReceived.Data[-1] == "A" }}'
+        - condition: template
+          value_template: '{{trigger.payload_json.RfReceived.Data[-1] == "E" }}'
+        - condition: template
+          value_template: '{{trigger.payload_json.RfReceived.Data[-1] == "6" }}'
+    sequence:
+    - service: mqtt.publish
+      data_template:
+        topic: '{{ ''homeassistant/binary_sensor/batt_state'' + trigger.payload_json.RfReceived.Data[:5]
+          + ''/config'' }}'
+        payload: "{\n  \"name\": \"{{ 'Door/Window Battery ' + trigger.payload_json.RfReceived.Data[:5]}}\"\
+          ,\n  \"stat_t\": \"~BATT_STATE\",\n  \"device_class\": \"battery\",\n  \"\
+          uniq_id\": \"{{ 'Batt-' + trigger.payload_json.RfReceived.Data[:5]}}\",\n\
+          \  \"device\": {\n    \"identifiers\": [\n      \"{{trigger.payload_json.RfReceived.Data[:5]}}\"\
+          \n    ],\n  \"name\": \"{{ 'Door/Window ' + trigger.payload_json.RfReceived.Data[:5]}}\"\
+          ,\n  \"model\": \"Door/Window Sensor\"\n,\n  \"manufacturer\": \"VirageLabs\"\
+          \n  },\n  \"~\": \"{{ trigger.payload_json.RfReceived.Data[:5] + '/tele/'\
+          \ }}\"\n}"
+        retain: true
+    - service: mqtt.publish
+      data_template:
+        topic: '{{ ''homeassistant/binary_sensor/door_state'' + trigger.payload_json.RfReceived.Data[:5]
+          + ''/config'' }}'
+        payload: "{\n  \"name\": \"{{ 'Door/Window State ' + trigger.payload_json.RfReceived.Data[:5]}}\"\
+          ,\n  \"stat_t\": \"~DOOR_STATE\",\n  \"device_class\": \"door\",\n  \"uniq_id\"\
+          : \"{{ 'State-' + trigger.payload_json.RfReceived.Data[:5]}}\",\n  \"device\"\
+          : {\n    \"identifiers\": [\n      \"{{trigger.payload_json.RfReceived.Data[:5]}}\"\
+          \n    ]\n  },\n  \"~\": \"{{ trigger.payload_json.RfReceived.Data[:5] +\
+          \ '/tele/' }}\"\n}"
+        retain: true
+    - service: automation.turn_off
+      entity_id: automation.motion_sensor_auto_setup
