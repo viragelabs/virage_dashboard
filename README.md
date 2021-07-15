@@ -12,4 +12,6 @@ https://github.com/viragelabs/virage_dashboard/blob/main/blueprints/sensor_insta
 
 https://github.com/viragelabs/virage_dashboard/blob/main/blueprints/sensor_data.yaml
 
+
+
 Click Preview Blueprint, then Import Blueprint (repeat this for each URL above).  You should then see 
