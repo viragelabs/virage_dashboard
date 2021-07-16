@@ -4,6 +4,7 @@ blueprint:
   domain: automation
   input: {}
   source_url: https://github.com/viragelabs/virage_dashboard/blob/main/blueprints/sensor_install.yaml
+initial_state: false
 trigger:
 - platform: mqtt
   topic: tele/rfbridge/RESULT

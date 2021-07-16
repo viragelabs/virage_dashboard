@@ -1,10 +1,10 @@
 {
   "domain": "virage_dashboard",
   "name": "Virage Dashboard",
-  "documentation": "https://dwainscheeren.github.io/dwains-lovelace-dashboard/",
-  "issue_tracker": "https://github.com/dwainscheeren/dwains-lovelace-dashboard/issues",
+  "documentation": "https://github.com/viragelabs/virage_dashboard",
+  "issue_tracker": "https://github.com/viragelabs/virage_dashboard/issues",
   "dependencies": ["lovelace", "http", "frontend"],
-  "codeowners": ["@dwainscheeren"],
+  "codeowners": ["@viragelabs"],
   "config_flow": true,
-  "version": "1.0.1"
+  "version": "1.0.2"
 }
