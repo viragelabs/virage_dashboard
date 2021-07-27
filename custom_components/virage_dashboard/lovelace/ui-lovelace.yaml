@@ -3,6 +3,93 @@ views:
   - 
     cards:
       - type: custom:vertical-stack-in-card
+        title: Virage Devices on Your System
+        cards:
+
+          - type: custom:auto-entities
+            show_empty: false
+            card:
+              type: entities
+              title: Switches
+              show_header_toggle: false
+            filter:
+              include:
+                - domain: switch
+                  attributes:
+                    Manufacturer: VirageLabs
+                    Model: VirageSwitch
+          - type: custom:auto-entities
+            show_empty: false
+            card:
+              type: entities
+              title: Outlets
+              show_header_toggle: false
+            filter:
+              include:
+                - domain: switch
+                  attributes:
+                    Manufacturer: VirageLabs
+                    Model: ViragePlug
+          - type: custom:auto-entities
+            show_empty: false
+            card:
+              type: entities
+              title: Dimmers
+              show_header_toggle: false
+            filter:
+              include:
+                - domain: light
+                  attributes:
+                    Manufacturer: VirageLabs
+                    Model: VirageDimmer
+          - type: custom:auto-entities
+            show_empty: false
+            card:
+              type: entities
+              title: RF Bridges
+              show_header_toggle: false
+            filter:
+              include:
+                - domain: sensor
+                  attributes:
+                    Manufacturer: VirageLabs
+                    Model: VirageBridge
+          - type: custom:auto-entities
+            show_empty: false
+            card:
+              type: entities
+              title: Door & Window Contacts
+              show_header_toggle: false
+            filter:
+              exclude:
+                - name: "Door/Window State*"
+                  domain: binary_sensor
+                - name: "Door/Window Battery*"
+                  domain: binary_sensor
+              include:
+                - domain: binary_sensor
+                  attributes:
+                    device:manufacturer: VirageLabs
+                    device:model: Door/Window Sensor
+          - type: custom:auto-entities
+            show_empty: false
+            card:
+              type: entities
+              title: Motion Sensors
+              show_header_toggle: false
+            filter:
+              exclude:
+                - name: "Motion State*"
+                  domain: binary_sensor
+                - name: "Motion Battery*"
+                  domain: binary_sensor
+              include:
+                - domain: binary_sensor
+                  attributes:
+                    device:manufacturer: VirageLabs
+                    device:model: Motion Sensor
+
+      - type: custom:vertical-stack-in-card
         title: Add Door Contacts or Motion Sensors
         cards:
           - type: entities
@@ -11,15 +98,19 @@ views:
                 icon: mdi:magnify-plus
                 name: "Enable Discovery"
                 tap_action:
-                  action: none                
+                  action: none
           - type: custom:auto-entities
             card:
               type: glance
             filter:
               include:
-                - name: "Motion *"
+                - name: "Motion State*"
                   domain: binary_sensor
-                - name: "Door/Window *"
+                - name: "Door/Window State*"
+                  domain: binary_sensor
+                - name: "Motion Battery*"
+                  domain: binary_sensor
+                - name: "Door/Window Battery*"
                   domain: binary_sensor
       - type: custom:vertical-stack-in-card
         title:
