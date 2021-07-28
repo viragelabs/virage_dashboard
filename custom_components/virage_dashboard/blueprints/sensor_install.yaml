@@ -7,7 +7,7 @@ blueprint:
 initial_state: false
 trigger:
 - platform: mqtt
-  topic: tele/rfbridge/RESULT
+  topic: tele/VirageBridge/RESULT
 condition:
   condition: and
   conditions:

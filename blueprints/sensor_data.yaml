@@ -6,7 +6,7 @@ blueprint:
   source_url: https://raw.githubusercontent.com/brandondb1/blueprints/main/sensor_data.yaml
 trigger:
 - platform: mqtt
-  topic: tele/rfbridge/RESULT
+  topic: tele/VirageBridge/RESULT
 mode: queued
 condition:
   condition: and
