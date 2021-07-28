@@ -89,7 +89,7 @@ views:
                     device:manufacturer: VirageLabs
                     device:model: Motion Sensor
 
-      - type: custom:vertical-stack-in-card
+      - type: vertical-stack
         title: Add Door Contacts or Motion Sensors
         cards:
           - type: entities
@@ -104,17 +104,10 @@ views:
               type: glance
             filter:
               include:
-                - name: "Motion State*"
+                - name: "Motion *"
                   domain: binary_sensor
-                - name: "Door/Window State*"
+                - name: "Door/Window *"
                   domain: binary_sensor
-                - name: "Motion Battery*"
-                  domain: binary_sensor
-                - name: "Door/Window Battery*"
-                  domain: binary_sensor
-      - type: custom:vertical-stack-in-card
-        title:
-        cards:        
           - type: markdown
             content: Turn Discovery on, then trigger the sensor or contact.<p>
                      Icons for newly discovered items will be displayed above.  Click on the icon to open the properties dialog, then the <ha-icon icon="mdi:cog"> </ha-icon>

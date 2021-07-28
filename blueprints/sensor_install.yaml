@@ -71,7 +71,10 @@ action:
           \ }}\"\n}"
         retain: true
     - service: automation.turn_off
-      entity_id: automation.door_contact_motion_sensor_setup
+      data:
+        stop_actions: true
+      target:
+        entity_id: automation.door_contact_motion_sensor_setup
   - conditions:
     - condition: and
       conditions:
@@ -115,4 +118,7 @@ action:
           \ }}\"\n}"
         retain: true
     - service: automation.turn_off
-      entity_id: automation.door_contact_motion_sensor_setup
+      data:
+        stop_actions: true
+      target:
+        entity_id: automation.door_contact_motion_sensor_setup
