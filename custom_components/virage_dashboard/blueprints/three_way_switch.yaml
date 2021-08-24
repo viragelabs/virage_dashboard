@@ -18,14 +18,16 @@ variables:
   entity_1: !input 'entity_1'
   entity_2: !input 'entity_2'
 trigger:
-  - platform: state
-    entity_id: !input 'entity_1'
-  - platform: state
-    entity_id: !input 'entity_2'
-condition:
-  - condition: template
-    value_template: '{{ states(entity_1) != states(entity_2) }}'
+- entity_id: &id003
+  - !input 'entity_1'
+  - !input 'entity_2'
+  platform: state
+  to:
+  - 'on'
+  - 'off'
 action:
-  - service: homeassistant.turn_{{ trigger.to_state.state }}
-    data:
-      entity_id: '{% if trigger.from_state.entity_id == entity_1 %} {{ entity_2 }} {% else %} {{ entity_1 }} {% endif %}'
+- service_template: homeassistant.turn_{{trigger.to_state.state}}
+  data:
+    entity_id: *id003
+- delay:
+    milliseconds: 500
