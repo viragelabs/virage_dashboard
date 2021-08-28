@@ -3,6 +3,7 @@ import voluptuous as vol
 
 from homeassistant import config_entries
 from homeassistant.core import callback
+from .const import NAME
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -11,4 +12,4 @@ class VirageDashboardConfigFlow(config_entries.ConfigFlow):
     async def async_step_user(self, user_input=None):
         if self._async_current_entries():
             return self.async_abort(reason="single_instance_allowed")
-        return self.async_create_entry(title="", data={})
+        return self.async_create_entry(title=NAME, data={})

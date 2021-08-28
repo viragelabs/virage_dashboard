@@ -1,0 +1,18 @@
+{
+  "title": "Virage Dashboard",
+  "config": {
+    "step": {
+      "init": {
+        "title": "Virage Dashboard Settings",
+        "description": "",
+        "data": {
+          "sidepanel_icon": "Side panel icon",
+          "sidepanel_title": "Side panel title"
+        }
+      }
+    },
+    "abort": {
+      "single_instance_allowed": "Only a single configuration of Virage Dashboard is allowed."
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "domain": "virage_dashboard",
+  "name": "Virage Dashboard",
+  "documentation": "https://github.com/viragelabs/virage_dashboard",
+  "issue_tracker": "https://github.com/viragelabs/virage_dashboard/issues",
+  "dependencies": ["lovelace", "http", "frontend"],
+  "codeowners": ["@viragelabs"],
+  "config_flow": true,
+  "version": "1.6.1"
+}
