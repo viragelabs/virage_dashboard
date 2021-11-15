@@ -4,4 +4,7 @@
   "domains": [
     "virage_dashboard"
   ],
+  "iot_class": [
+    "Local Push"
+  ]
 }
