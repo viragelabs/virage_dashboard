@@ -1,6 +1,6 @@
 # Virage Dashboard
 
-An integration to easily track, set up and label [Virage Laboratories](https://www.viragelabs.com/) devices within Home Assistant.  The integration can be installed through [HACS](https://hacs.xyz/), or by copying the contents of [this folder](https://github.com/viragelabs/virage_dashboard/tree/main/custom_components) to the custom_components folder in your Home Assistant instance.
+An integration to easily track, set up and label [Virage Laboratories](https://www.viragelabs.com/) devices within Home Assistant.  The integration can be installed through [HACS](https://hacs.xyz/), or by copying the contents of [this folder] <a href="https://github.com/viragelabs/virage_dashboard/tree/main/custom_components/" target="_blank"> link </a> to the custom_components folder in your Home Assistant instance.
 
 <a href="http://example.com/" target="_blank">Hello, world!</a>
 
