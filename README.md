@@ -16,7 +16,7 @@ Note that Virage Laboratories light switches, dimmers, bridges and electrical pl
 
 ## Automations
 
-After installing either the full integration, or just the automations (see below), you should then see the imported blueprints shown the in the list of available blueprints in your Home Assistant.  Click Create Automation beside the **Door Contact & Motion Sensor Setup** blueprint. 
+After installing either the full integration, or just the blueprints (see below to do this manually), you should then see the imported blueprints shown the in the list of available blueprints in your Home Assistant.  Click Create Automation beside the **Door Contact & Motion Sensor Setup** blueprint. 
 
 ![image](https://github.com/viragelabs/virage_dashboard/blob/main/images/blueprintlist.PNG)
 
