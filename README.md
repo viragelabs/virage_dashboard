@@ -2,7 +2,7 @@
 
 An integration to easily track, set up and label Virage Laboratories devices within Home Assistant.  The integration can be installed through HACS, or by copying the contents of https://github.com/viragelabs/virage_dashboard/tree/main/custom_components to the custom_components folder in your Home Assistant instance.
 
-This integration has two components - first, five automations (included as blueprints).  One automation installs new motion sensors or door contacts, the second listens to these after they are installed.  The third monitors installed sensors for battery conditon and tamper state.  The remaining two allow you to easily set up a three-way or four-way switch using Virage Laboratories switches, plugs or dimmers.  These are installed along with the integration, or may be manually installed (see below).
+This integration has two components - first, five automations (included as blueprints).  One automation installs new motion sensors or door contacts, the second listens to these after they are installed.  The third monitors installed sensors for battery conditon and tamper state.  The remaining two allow you to easily set up a three-way or four-way switch using Virage Laboratories switches, plugs or dimmers.  These are installed as part of the integration (as blueprints), or may be manually installed (see below).
 
 The second component is the Virage Dashboard (accessible via the side bar) that allows you to see all of your Virage Laboratories devices in one place (light switches, dimmers, electrical plugs, RF receivers, door/window contacts, motion sensors etc.), set up and name new ones, and access the administration pages of WiFi-enabled Virage devices.
 
@@ -35,6 +35,9 @@ https://github.com/viragelabs/virage_dashboard/blob/main/custom_components/virag
 
 https://github.com/viragelabs/virage_dashboard/blob/main/custom_components/virage_dashboard/blueprints/sensor_data.yaml<p>
 [![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fviragelabs%2Fvirage_dashboard%2Fblob%2Fmain%2Fcustom_components%2Fvirage_dashboard%2Fblueprints%2Fsensor_data.yaml)
+  
+https://github.com/viragelabs/virage_dashboard/blob/main/custom_components/virage_dashboard/blueprints/sensor_notify.yaml<p>
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fviragelabs%2Fvirage_dashboard%2Fblob%2Fmain%2Fcustom_components%2Fvirage_dashboard%2Fblueprints%2Fsensor_notify.yaml)
 
 Click Preview Blueprint, then Import Blueprint (repeat this for each URL above).
   
