@@ -1,12 +1,14 @@
 # Virage Dashboard
 
-An integration to easily track, set up and label Virage Laboratories devices within Home Assistant.  The integration can be installed through HACS, or by copying the contents of https://github.com/viragelabs/virage_dashboard/tree/main/custom_components to the custom_components folder in your Home Assistant instance.
+An integration to easily track, set up and label [Virage Laboratories](https://www.viragelabs.com/) devices within Home Assistant.  The integration can be installed through HACS, or by copying the contents of https://github.com/viragelabs/virage_dashboard/tree/main/custom_components to the custom_components folder in your Home Assistant instance.
 
-This integration has two components - first, five automations (included as blueprints).  One automation installs new motion sensors or door contacts, the second listens to these after they are installed.  The third monitors installed sensors for battery conditon and tamper state.  The remaining two allow you to easily set up a three-way or four-way switch using Virage Laboratories switches, plugs or dimmers.  These are installed as part of the integration (as blueprints), or may be manually installed (see below).
+This integration has two components - first, five automations (included as blueprints).  One automation installs new motion sensors or door contacts, the second listens to these after they are installed, and the third monitors installed sensors for battery conditon and tamper state.  Note that these automations are meant to be used in conjunction with a [VirageBridge](https://www.viragelabs.com/products/) RF to MQTT device as well as 433 MHz door contacts and/or motion sensors.
+
+The remaining two automations allow you to easily set up a three-way or four-way switch using Virage Laboratories switches, plugs or dimmers.  These are installed as part of the integration (as blueprints), or may be manually installed (see below).
 
 The second component is the Virage Dashboard (accessible via the side bar) that allows you to see all of your Virage Laboratories devices in one place (light switches, dimmers, electrical plugs, RF receivers, door/window contacts, motion sensors etc.), set up and name new ones, and access the administration pages of WiFi-enabled Virage devices.
 
-Note that this integration installs several custom cards, including [Config Template Card](https://github.com/iantrich/config-template-card), [Auto Entities Card](https://github.com/thomasloven/lovelace-auto-entities), [Ext Weblink](https://github.com/custom-cards/ext-weblink), and [Vertical Stack in Card](https://github.com/ofekashery/vertical-stack-in-card).  If you already have one or more of these installed, it is advisable to uninstall them before installing the integration.  The versions installed by the integration will work throughout Home Assistant.
+Note that this integration installs several custom cards, including [Config Template Card](https://github.com/iantrich/config-template-card), [Auto Entities Card](https://github.com/thomasloven/lovelace-auto-entities), [Ext Weblink](https://github.com/custom-cards/ext-weblink), and [Vertical Stack in Card](https://github.com/ofekashery/vertical-stack-in-card).  If you already have one or more of these installed, it is advisable to uninstall them before installing the integration.  The versions installed by the integration will work throughout Home Assistant.  Thank you to the authors of these cards!
 
 ## Integration
   
@@ -42,3 +44,5 @@ https://github.com/viragelabs/virage_dashboard/blob/main/custom_components/virag
 Click Preview Blueprint, then Import Blueprint (repeat this for each URL above).
   
 ![image](https://github.com/viragelabs/virage_dashboard/blob/main/images/importdialog.PNG)
+  
+If you are not using the full integration with the Virage Dashboard, to set up new door contacts or motion sensors enable the **Door Contact & Motion Sensor Setup** automation and trigger the door contact or motion sensor.  This will allow the automation to set up a device and entity in Home Assistant for the new item.  The automation automatically turns itself off once it has been triggered. 
