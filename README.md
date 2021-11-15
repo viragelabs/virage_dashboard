@@ -2,7 +2,7 @@
 
 An integration to easily track, set up and label Virage Laboratories devices within Home Assistant.  The integration can be installed through HACS, or by copying the contents of https://github.com/viragelabs/virage_dashboard/tree/main/custom_components to the custom_components folder in your Home Assistant instance.
 
-This integration has two components - first, five automations (included as blueprints).  One automation installs new motion sensors or door contacts, the second listens to these after they are installed.  The third monitors installed sensors for battery conditon and tamper state.  The remaining two allow you to easily set up a three-way or four-way switch using Virage Laboratories switches, plugs or dimmers.
+This integration has two components - first, five automations (included as blueprints).  One automation installs new motion sensors or door contacts, the second listens to these after they are installed.  The third monitors installed sensors for battery conditon and tamper state.  The remaining two allow you to easily set up a three-way or four-way switch using Virage Laboratories switches, plugs or dimmers.  These are installed along with the integration, or may be manually installed (see below).
 
 The second component is the Virage Dashboard (accessible via the side bar) that allows you to see all of your Virage Laboratories devices in one place (light switches, dimmers, electrical plugs, RF receivers, door/window contacts, motion sensors etc.), set up and name new ones, and access the administration pages of WiFi-enabled Virage devices. 
 
