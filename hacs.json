@@ -1,0 +1,7 @@
+{
+  "name": "Virage Dashboard",
+  "render_readme": "true",
+  "domains": [
+    "virage_dashboard"
+  ],
+}
