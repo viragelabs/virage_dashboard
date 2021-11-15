@@ -2,9 +2,9 @@
 
 An integration to easily track, set up and label [Virage Laboratories](https://www.viragelabs.com/) devices within Home Assistant.  The integration can be installed through HACS, or by copying the contents of [this folder](https://github.com/viragelabs/virage_dashboard/tree/main/custom_components) to the custom_components folder in your Home Assistant instance.
 
-This integration has two components - first, five automations (included as blueprints).  One automation installs new motion sensors or door contacts, the second listens to these after they are installed, and the third monitors installed sensors for battery conditon and tamper state.  Note that these automations are meant to be used in conjunction with a [VirageBridge](https://www.viragelabs.com/products/) RF to MQTT device as well as 433 MHz door contacts and/or motion sensors.
+This integration has two components - first, five automations (included as blueprints).  One automation installs new motion sensors or door contacts, the second listens to these after they are installed, and the third monitors installed sensors for battery conditon and tamper state.  These are installed as part of the integration (as blueprints), or may be manually installed (see below).  Note that these automations are meant to be used in conjunction with a [VirageBridge](https://www.viragelabs.com/products/) RF to MQTT device as well as 433 MHz door contacts and/or motion sensors.
 
-The remaining two automations allow you to easily set up a three-way or four-way switch using Virage Laboratories switches, plugs or dimmers.  These are installed as part of the integration (as blueprints), or may be manually installed (see below).
+The remaining two automations allow you to easily set up a three-way or four-way switch using Virage Laboratories switches, plugs or dimmers.
 
 The second component is the Virage Dashboard (accessible via the side bar) that allows you to see all of your Virage Laboratories devices in one place (light switches, dimmers, electrical plugs, RF receivers, door/window contacts, motion sensors etc.), set up and name new ones, and access the administration pages of WiFi-enabled Virage devices.
 
