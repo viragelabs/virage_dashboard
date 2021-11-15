@@ -4,7 +4,7 @@ An integration to easily track, set up and label Virage Laboratories devices wit
 
 This integration has two components - first, five automations (included as blueprints).  One automation installs new motion sensors or door contacts, the second listens to these after they are installed.  The third monitors installed sensors for battery conditon and tamper state.  The remaining two allow you to easily set up a three-way or four-way switch using Virage Laboratories switches, plugs or dimmers.  These are installed along with the integration, or may be manually installed (see below).
 
-The second component is the Virage Dashboard (accessible via the side bar) that allows you to see all of your Virage Laboratories devices in one place (light switches, dimmers, electrical plugs, RF receivers, door/window contacts, motion sensors etc.), set up and name new ones, and access the administration pages of WiFi-enabled Virage devices. Note that the dashboard installs several custom cards, including https://github.com/iantrich/config-template-card [![Config Template Card]]
+The second component is the Virage Dashboard (accessible via the side bar) that allows you to see all of your Virage Laboratories devices in one place (light switches, dimmers, electrical plugs, RF receivers, door/window contacts, motion sensors etc.), set up and name new ones, and access the administration pages of WiFi-enabled Virage devices. Note that the dashboard installs several custom cards, including [Config Template Card] (https://github.com/iantrich/config-template-card)
 
 ## Automations
 
