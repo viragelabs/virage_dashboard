@@ -16,15 +16,15 @@ Note that Virage Laboratories light switches, dimmers, bridges and electrical pl
 
 ## Automations
 
-After installing either the full integration, or just the automations (see below), you should then see the imported blueprints shown the in the list of available blueprints in your Home Assistant.  Click Create Automation beside one of the blueprints. 
+After installing either the full integration, or just the automations (see below), you should then see the imported blueprints shown the in the list of available blueprints in your Home Assistant.  Click Create Automation beside the **Door Contact & Motion Sensor Setup** blueprint. 
 
 ![image](https://github.com/viragelabs/virage_dashboard/blob/main/images/blueprintlist.PNG)
 
-Enter a description in the space provided and click Save.  <b>Do not</b> change the name of the automation.  Note that the Save button will not appear until you type something in the Description field.
+Enter a description in the space provided and click Save.  <b>Do not</b> change the name of the automation.  Note that the Save button will not appear until you type something in the Description field.  Repeat for the other two **Door Contact** blueprints.
 
 ![image](https://github.com/viragelabs/virage_dashboard/blob/main/images/createautomation.PNG)
   
-Both automations should now be listed in the Automations list in your Home Assistant.
+All three automations should now be listed in the Automations list in your Home Assistant.  Note that the **Door Contact & Motion Sensor Setup** automation is disabled by default, and is controlled via the interface on the Virage Dashboard.
 
 If you do not want to install the full integration, you may install the automations separately.  The automations are included in this repository as Blueprints, which can be easily installed in Home Assistant:
 
