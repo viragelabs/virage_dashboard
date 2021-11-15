@@ -2,6 +2,7 @@ blueprint:
   name: Four Way Switch
   description: 'Create a Virtual 4-Way Switch'
   domain: automation
+  source_url: https://github.com/viragelabs/virage_dashboard/blob/main/custom_components/virage_dashboard/blueprints/four_way_switch.yaml
   input:
     entity_1:
       name: First Light/Switch

@@ -3,7 +3,7 @@ blueprint:
   description: Notify on low battery or tamper
   domain: automation
   input: {}
-  source_url: https://github.com/viragelabs/virage_dashboard/blob/main/blueprints/sensor_notify.yaml
+  source_url: https://github.com/viragelabs/virage_dashboard/blob/main/custom_components/virage_dashboard/blueprints/sensor_notify.yaml
 initial_state: false
 mode: single
   trigger:

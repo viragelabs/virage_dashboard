@@ -3,7 +3,7 @@ blueprint:
   description: Install a 433 MHz sensor
   domain: automation
   input: {}
-  source_url: https://github.com/viragelabs/virage_dashboard/blob/main/blueprints/sensor_install.yaml
+  source_url: https://github.com/viragelabs/virage_dashboard/blob/main/custom_components/virage_dashboard/blueprints/sensor_install.yaml
 initial_state: false
 mode: single
 trigger:

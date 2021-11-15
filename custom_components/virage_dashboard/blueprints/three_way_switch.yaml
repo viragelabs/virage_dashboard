@@ -2,6 +2,7 @@ blueprint:
   name: Three Way Switch
   description: 'Create a Virtual 3-Way Switch'
   domain: automation
+  source_url: https://github.com/viragelabs/virage_dashboard/blob/main/custom_components/virage_dashboard/blueprints/three_way_switch.yaml
   input:
     entity_1:
       name: First Light/Switch
