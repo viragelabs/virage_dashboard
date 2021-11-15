@@ -1,12 +1,14 @@
 # Virage Dashboard
 
-An integration to easily track set up and label Virage Laboratories devices within Home Assistant.
+An integration to easily track, set up and label Virage Laboratories devices within Home Assistant.  The integration can be installed through HACS, or by copying the contents of https://github.com/viragelabs/virage_dashboard/tree/main/custom_components to the custom_components folder in your Home Assistant instance.
 
 This integration has two components - first, five automations (included as blueprints).  One automation installs new motion sensors or door contacts, the second listens to these after they are installed.  The third monitors installed sensors for battery conditon and tamper state.  The remaining two allow you to easily set up a three-way or four-way switch using Virage Laboratories switches, plugs or dimmers.
 
+The second component is the Virage Dashboard (accessible via the side bar) that allows you to see all of your Virage Laboratories devices in one place (light switches, dimmers, electrical plugs, RF receivers, door/window contacts, motion sensors etc.), set up and name new ones, and access the administration pages of WiFi-enabled Virage devices. 
+
 ## Automations
 
-The automations are included in this repository as Blueprints, which can be easily installed in Home Assistant:
+If you do not want to install the full integration, you may install the automations separately.  The automations are included in this repository as Blueprints, which can be easily installed in Home Assistant:
 
 In Home Assistant, go to the Configuration menu, then to Blueprints.  Click the Import Blueprint button, and paste the following URLs (one at a time) into the space provided, or click the Import Blueprint buttons to be taken there automatically:
 
@@ -20,7 +22,7 @@ Click Preview Blueprint, then Import Blueprint (repeat this for each URL above).
   
 ![image](https://github.com/viragelabs/virage_dashboard/blob/main/images/importdialog.PNG)
 
-You should then see the imported blueprints shown the in the list of available blueprints in your Home Assistant.  Click Create Automation beside one of the blueprints. 
+After installing either the full integration, or just the automations, you should then see the imported blueprints shown the in the list of available blueprints in your Home Assistant.  Click Create Automation beside one of the blueprints. 
 
 ![image](https://github.com/viragelabs/virage_dashboard/blob/main/images/blueprintlist.PNG)
 
@@ -32,4 +34,6 @@ Both automations should now be listed in the Automations list in your Home Assis
   
 ## Integration
   
-
+Whether you install it via HACS or manually, once installed, the integration will create a new icon in the sidebar of your Home Assistant installation (as well as an entry in the Integrations area of Home Assistant).  Clicking on this icon will open the Virage Dashboard.  The dashboard displays all of the installed Virage Laboratories devices in one screen, organized by device type.  It also allows you to set up and name new door/window contacts or motion sensors via an installed VirageBridge device, as well as access the administration interfaces of WiFi-enabled Virage devices.
+  
+Note that Virage Laboratories light switches, dimmers, bridges and electrical plugs are installed in Home Assistant via their built-in web interfaces (see product documentation for more details).  Once you have configured them, they should be automatically detected by Home Assistant and installed.  Note that it may take up to 5 minutes for a newly detected WiFi device to appear in your Virage Dashboard.
