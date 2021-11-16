@@ -16,9 +16,10 @@ Whether you install it via HACS or manually, once installed, the integration wil
 
 ![image](https://github.com/viragelabs/virage_dashboard/blob/main/images/menu.PNG)
 
-Clicking on this icon will open the Virage Dashboard.  The dashboard displays all of the installed Virage Laboratories devices in one screen, organized by device type.  It also allows you to set up and name new door/window contacts or motion sensors via an installed VirageBridge device, as well as access the administration interfaces of WiFi-enabled Virage devices.
+Clicking on this icon will open the Virage Dashboard.  The dashboard displays all of the installed Virage Laboratories devices in one screen, organized by device type.  It also allows you to set up and name new door/window contacts or motion sensors via an installed [VirageBridge](https://www.viragelabs.com/products/#bridge) device, as well as access the administration interfaces of WiFi-enabled Virage devices.
 
 ![image](https://github.com/viragelabs/virage_dashboard/blob/main/images/dashboard.PNG)
+<img src="https://github.com/viragelabs/virage_dashboard/blob/main/images/dashboard.PNG" alt="Dashboard" width="200"/>
   
 Note that Virage Laboratories light switches, dimmers, bridges and electrical plugs are installed in Home Assistant via their built-in web interfaces (see product documentation for more details).  Once you have configured them, they should be automatically detected by Home Assistant and installed.  Note that it may take up to 5 minutes for a newly detected WiFi device to appear in your Virage Dashboard.
 
