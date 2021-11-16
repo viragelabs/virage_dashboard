@@ -14,12 +14,11 @@ Note that this integration installs several custom cards, including [Config Temp
   
 Whether you install it via HACS or manually, once installed, the integration will create a new icon in the sidebar of your Home Assistant installation (as well as an entry in the Integrations area of Home Assistant).
 
-![image](https://github.com/viragelabs/virage_dashboard/blob/main/images/menu.PNG)
+<img src="https://github.com/viragelabs/virage_dashboard/blob/main/images/Menu.PNG" alt="Virage Dashboard Menu" width="200"/>
 
 Clicking on this icon will open the Virage Dashboard.  The dashboard displays all of the installed Virage Laboratories devices in one screen, organized by device type.  It also allows you to set up and name new door/window contacts or motion sensors via an installed [VirageBridge](https://www.viragelabs.com/products/#bridge) device, as well as access the administration interfaces of WiFi-enabled Virage devices.
 
-![image](https://github.com/viragelabs/virage_dashboard/blob/main/images/dashboard.PNG)
-<img src="https://github.com/viragelabs/virage_dashboard/blob/main/images/dashboard.PNG" alt="Dashboard" width="200"/>
+<img src="https://github.com/viragelabs/virage_dashboard/blob/main/images/dashboard.PNG" alt="Dashboard" width="600"/>
   
 Note that Virage Laboratories light switches, dimmers, bridges and electrical plugs are installed in Home Assistant via their built-in web interfaces (see product documentation for more details).  Once you have configured them, they should be automatically detected by Home Assistant and installed.  Note that it may take up to 5 minutes for a newly detected WiFi device to appear in your Virage Dashboard.
 
