@@ -18,7 +18,7 @@ Whether you install it via HACS or manually, once installed, the integration wil
 
 Clicking on this icon will open the Virage Dashboard.  The dashboard displays all of the installed Virage Laboratories devices in one screen, organized by device type.  It also allows you to set up and name new door/window contacts or motion sensors via an installed [VirageBridge](https://www.viragelabs.com/products/#bridge) device, as well as access the administration interfaces of WiFi-enabled Virage devices.
 
-<img src="https://github.com/viragelabs/virage_dashboard/blob/main/images/dashboard.PNG" alt="Dashboard" width="600"/>
+<img src="https://github.com/viragelabs/virage_dashboard/blob/main/images/dashboard.PNG" alt="Dashboard" width="800"/>
   
 Note that Virage Laboratories light switches, dimmers, bridges and electrical plugs are installed in Home Assistant via their built-in web interfaces (see product documentation for more details).  Once you have configured them, they should be automatically detected by Home Assistant and installed.  Note that it may take up to 5 minutes for a newly detected WiFi device to appear in your Virage Dashboard.
 
@@ -26,11 +26,11 @@ Note that Virage Laboratories light switches, dimmers, bridges and electrical pl
 
 After installing either the full integration, or just the blueprints (see below to do this manually), you should then see the imported blueprints shown the in the list of available blueprints in your Home Assistant.  Click Create Automation beside the **Door Contact & Motion Sensor Setup** blueprint. 
 
-![image](https://github.com/viragelabs/virage_dashboard/blob/main/images/blueprintlist.PNG)
+<img src="https://github.com/viragelabs/virage_dashboard/blob/main/images/blueprintlist.PNG" alt="Blueprints" width="800"/>
 
 Enter a description in the space provided and click Save.  <b>Do not</b> change the name of the automation.  Note that the Save button will not appear until you type something in the Description field.  Repeat for the other two **Door Contact** blueprints.
 
-![image](https://github.com/viragelabs/virage_dashboard/blob/main/images/createautomation.PNG)
+<img src="https://github.com/viragelabs/virage_dashboard/blob/main/images/createautomation.PNG" alt="Create Automation" width="400"/>
   
 All three automations should now be listed in the Automations list in your Home Assistant.  Note that the **Door Contact & Motion Sensor Setup** automation is disabled by default, and is controlled via the interface on the Virage Dashboard.
 
@@ -49,6 +49,6 @@ https://github.com/viragelabs/virage_dashboard/blob/main/custom_components/virag
 
 Click Preview Blueprint, then Import Blueprint (repeat this for each URL above).
   
-![image](https://github.com/viragelabs/virage_dashboard/blob/main/images/importdialog.PNG)
+<img src="https://github.com/viragelabs/virage_dashboard/blob/main/images/importdialog.PNG" alt="Import Blueprint" width="400"/>
   
 If you are not using the full integration with the Virage Dashboard, to set up new door contacts or motion sensors enable the **Door Contact & Motion Sensor Setup** automation and trigger the door contact or motion sensor.  This will allow the automation to set up a device and entity in Home Assistant for the new item.  The automation automatically turns itself off once it has been triggered. 
