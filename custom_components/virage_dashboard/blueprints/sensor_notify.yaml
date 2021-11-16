@@ -9,13 +9,13 @@ mode: single
 trigger:
   - event_type: state_changed
     platform: event
-  condition:
+condition:
   - condition: template
     value_template: '{{ trigger.event.data.new_state.attributes.device.manufacturer
       == "VirageLabs" }}'
   - condition: template
     value_template: '{{ trigger.event.data.new_state.state == "on" }}'
-  action:
+action:
   - choose:
     - conditions:
       - condition: template
