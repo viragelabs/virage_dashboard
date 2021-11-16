@@ -30,7 +30,7 @@ After installing either the full integration, or just the blueprints (see below 
 
 Enter a description in the space provided and click Save.  <b>Do not</b> change the name of the automation.  Note that the Save button will not appear until you type something in the Description field.  Repeat for the other two **Door Contact** blueprints.
 
-<img src="https://github.com/viragelabs/virage_dashboard/blob/main/images/createautomation.PNG" alt="Create Automation" width="400"/>
+<img src="https://github.com/viragelabs/virage_dashboard/blob/main/images/createautomation.PNG" alt="Create Automation" width="800"/>
   
 All three automations should now be listed in the Automations list in your Home Assistant.  Note that the **Door Contact & Motion Sensor Setup** automation is disabled by default, and is controlled via the interface on the Virage Dashboard.
 
