@@ -20,7 +20,16 @@ Clicking on this icon will open the Virage Dashboard.  The dashboard displays al
 
 <img src="https://github.com/viragelabs/virage_dashboard/blob/main/images/dashboard.PNG" alt="Dashboard" width="800"/>
   
-Note that Virage Laboratories light switches, dimmers, bridges and electrical plugs are installed in Home Assistant via their built-in web interfaces (see product documentation for more details).  Once you have configured them, they should be automatically detected by Home Assistant and installed.  Note that it may take up to 5 minutes for a newly detected WiFi device to appear in your Virage Dashboard.
+Note that Virage Laboratories light switches, dimmers, bridges and electrical plugs are configured via their built-in web interfaces (see product documentation for more details).  Once configured and successfully connected to your WiFi, they should be automatically detected by Home Assistant and installed.  Note that it may take up to 5 minutes for a newly detected WiFi device to appear in your Virage Dashboard.
+
+Auto-detection by Home Assistant requires that:
+
+ - The Mosquitto MQTT Add-on and Integration are installed
+ - That your Home Assistant instance is on the same LAN as the WiFi AP your Virage devices are connected to
+ - That the username and password configured in the MQTT Add-On and in the web interface of each device match
+ - That the Hub Address configured in the web interface of each device matches the name or IP address of your Home Assistant instance.
+
+If you install the [Avahi Reflector MQTT](https://github.com/viragelabs/addons/tree/main/avahi-reflector) Add-on, Virage devices will be able to discover the location of your Home Assistant instance automatically.
 
 ## Automations
 
