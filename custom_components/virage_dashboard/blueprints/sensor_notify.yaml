@@ -7,8 +7,8 @@ blueprint:
 initial_state: false
 mode: single
 trigger:
-  - event_type: state_changed
-    platform: event
+- platform: event
+  event_type: state_changed
 condition:
   - condition: template
     value_template: '{{ trigger.event.data.new_state.attributes.device.manufacturer
