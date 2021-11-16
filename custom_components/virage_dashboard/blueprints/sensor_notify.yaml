@@ -6,7 +6,7 @@ blueprint:
   source_url: https://github.com/viragelabs/virage_dashboard/blob/main/custom_components/virage_dashboard/blueprints/sensor_notify.yaml
 initial_state: false
 mode: single
-  trigger:
+trigger:
   - event_type: state_changed
     platform: event
   condition:
