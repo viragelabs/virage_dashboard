@@ -10,30 +10,32 @@ trigger:
 - platform: event
   event_type: state_changed
 condition:
+  condition: and
+  conditions:
   - condition: template
     value_template: '{{ trigger.event.data.new_state.attributes.device.manufacturer
       == "VirageLabs" }}'
   - condition: template
     value_template: '{{ trigger.event.data.new_state.state == "on" }}'
 action:
-  - choose:
-    - conditions:
-      - condition: template
-        value_template: '{{ trigger.event.data.new_state.attributes.device_class ==
-          "battery" }}'
-      sequence:
-      - data_template:
-          message: The battery in {{ trigger.event.data.new_state.attributes.friendly_name
-            }} is {{ "low" if trigger.event.data.new_state.state == "on" else "normal"
-            }}.
-        service: notify.persistent_notification
-    - conditions:
-      - condition: template
-        value_template: '{{ trigger.event.data.new_state.attributes.device_class ==
-          "problem" }}'
-      sequence:
-      - data_template:
-          message: The {{ trigger.event.data.new_state.attributes.friendly_name }}
-            has been {{ "opened" if trigger.event.data.new_state.state == "on" else
-            "closed" }}!
-        service: notify.persistent_notification
+- choose:
+  - conditions:
+    - condition: template
+      value_template: '{{ trigger.event.data.new_state.attributes.device_class ==
+        "battery" }}'
+    sequence:
+    - data_template:
+        message: The battery in {{ trigger.event.data.new_state.attributes.friendly_name
+          }} is {{ "low" if trigger.event.data.new_state.state == "on" else "normal"
+          }}.
+      service: notify.persistent_notification
+  - conditions:
+    - condition: template
+      value_template: '{{ trigger.event.data.new_state.attributes.device_class ==
+        "problem" }}'
+    sequence:
+    - data_template:
+        message: The {{ trigger.event.data.new_state.attributes.friendly_name }}
+          has been {{ "opened" if trigger.event.data.new_state.state == "on" else
+          "closed" }}!
+      service: notify.persistent_notification
