@@ -10,11 +10,12 @@ trigger:
 - platform: event
   event_type: state_changed
 condition:
-  condition: and
-  conditions:
   - condition: template
-    value_template: '{{ trigger.event.data.new_state.attributes.device.manufacturer
-      == "VirageLabs" }}'
+    value_template: >
+      {{ trigger.event.data.entity_id.startswith('binary_sensor') }}
+  - condition: template
+    value_template: >
+      {{ state_attr(trigger.event.data.entity_id, 'device').manufacturer == "VirageLabs" }}
   - condition: template
     value_template: '{{ trigger.event.data.new_state.state == "on" }}'
 action:
