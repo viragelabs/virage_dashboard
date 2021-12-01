@@ -33,11 +33,11 @@ If you install the [Virage Avahi MQTT](https://github.com/viragelabs/addons/tree
 
 ## Automations
 
-After installing either the full integration, or just the blueprints (see below to do this manually), you should then see the imported blueprints shown the in the list of available blueprints in your Home Assistant.  Click Create Automation beside the **Door Contact & Motion Sensor Setup** blueprint. 
+After installing either the full integration, or just the blueprints (see below to do this manually), in order to auto-detect and use Virage RF devices (e.g. door contacts or motion sensors), it is necessary to create three automations based on Blueprints that were installed by the integration.  In the Configuration menu, under Blueprints, you should see five new Blueprints in the list of available blueprints in your Home Assistant.  Click Create Automation beside the **Door Contact & Motion Sensor Setup** blueprint. 
 
 <img src="https://github.com/viragelabs/virage_dashboard/blob/main/images/blueprintlist.PNG" alt="Blueprints" width="800"/>
 
-Enter a description in the space provided and click Save.  <b>Do not</b> change the name of the automation.  Note that the Save button will not appear until you type something in the Description field.  Repeat for the other two **Door Contact** blueprints.
+Enter a description in the space provided and click Save.  <b>Do not</b> change the name of the automation.  Note that the Save button will not appear until you type something in the Description field.  Repeat for the other two **Door Contact** blueprints.  You do not need to set up automations for the remaining two Blueprints unless you plan to set up three- or four-way switches.
 
 <img src="https://github.com/viragelabs/virage_dashboard/blob/main/images/createautomation.PNG" alt="Create Automation" width="800"/>
   
