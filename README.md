@@ -6,7 +6,7 @@ This integration has two components - first, five automations (included as bluep
 
 The remaining two automations allow you to easily set up a three-way or four-way switch using Virage Laboratories (or any other) switches, plugs or dimmers.
 
-The second component is the Virage Dashboard (accessible via an icon in the sidebar) that allows you to see all of your Virage Laboratories devices in one place (light switches, dimmers, electrical plugs, RF receivers, door/window contacts, motion sensors etc.), set up and name new ones, and access the administration pages of WiFi-enabled Virage devices.
+The second component is the Virage Dashboard (accessible via an icon in the sidebar) that allows you to see all of your Virage Laboratories [devices](https://www.viragelabs.com/products) in one place (light switches, dimmers, electrical plugs, RF receivers, door/window contacts, motion sensors etc.), set up and name new ones, and access the administration pages of WiFi-enabled Virage devices.
 
 Note that this integration installs several custom cards, including [Config Template Card](https://github.com/iantrich/config-template-card), [Auto Entities Card](https://github.com/thomasloven/lovelace-auto-entities), [Ext Weblink](https://github.com/custom-cards/ext-weblink), and [Vertical Stack in Card](https://github.com/ofekashery/vertical-stack-in-card).  If you already have one or more of these installed, it is advisable to uninstall them before installing the integration.  The versions installed by the integration will work throughout Home Assistant.  Thank you to the authors of these cards!
 
