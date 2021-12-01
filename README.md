@@ -29,7 +29,7 @@ Auto-detection by Home Assistant requires that:
  - The username and password configured in the MQTT Add-On and in the web interface of each device match
  - The Hub Address configured in the web interface of each device matches the name or IP address of your Home Assistant instance.
 
-If you install the [Avahi Reflector MQTT](https://github.com/viragelabs/addons/tree/main/avahi-reflector) Add-on, Virage devices will be able to discover the location of your Home Assistant instance automatically.
+If you install the [Virage Avahi MQTT](https://github.com/viragelabs/addons/tree/main/avahi-mqtt) Add-on, Virage devices will be able to discover the location of your Home Assistant instance automatically.
 
 ## Automations
 
