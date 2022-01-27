@@ -3,7 +3,7 @@ blueprint:
   description: Install a 433 MHz sensor
   domain: automation
   input: {}
-  source_url: https://github.com/viragelabs/virage_dashboard/blob/main/custom_components/virage_dashboard/blueprints/sensor_install.yaml
+  source_url: https://github.com/viragelabs/virage_dashboard/blob/main/blueprints/sensor_install.yaml
 initial_state: false
 mode: single
 trigger:
@@ -23,8 +23,6 @@ condition:
     - condition: template
       value_template: '{{trigger.payload_json.RfReceived.Data[-1] == "B" }}'
     - condition: template
-      value_template: '{{trigger.payload_json.RfReceived.Data[-1] == "6" }}'
-    - condition: template
       value_template: '{{trigger.payload_json.RfReceived.Data[-1] == "A" }}'
 action:
 - choose:
@@ -39,10 +37,36 @@ action:
         conditions:
         - condition: template
           value_template: '{{trigger.payload_json.RfReceived.Data[-1] == "E" }}'
+    sequence:
+    - service: mqtt.publish
+      data_template:
+        topic: '{{ ''homeassistant/binary_sensor/motion_state_'' + trigger.payload_json.RfReceived.Data[:5]
+          + ''/config'' }}'
+        payload: "{\n  \"name\": \"{{ 'Motion State ' + trigger.payload_json.RfReceived.Data[:5]}}\"\
+          ,\n  \"stat_t\": \"~MOTION_STATE\",\n  \"device_class\": \"motion\",\n  \"json_attr_t\": \"{{ 'homeassistant/binary_sensor/motion_state_' + trigger.payload_json.RfReceived.Data[:5]
+          + '/config' }}\",\n  \"off_delay\": \"5\",\n  \"uniq_id\": \"{{ 'State-' + trigger.payload_json.RfReceived.Data[:5]}}\",\n\
+          \  \"device\": {\n    \"identifiers\": [\n      \"{{trigger.payload_json.RfReceived.Data[:5]}}\"\
+          \n    ],\n  \"name\": \"{{ 'Motion ' + trigger.payload_json.RfReceived.Data[:5]}}\"\
+          ,\n  \"model\": \"Motion Sensor\"\n,\n  \"manufacturer\": \"VirageLabs\"\
+          \n  },\n  \"~\": \"{{ trigger.payload_json.RfReceived.Data[:5] + '/tele/'\
+          \ }}\"\n}"
+        retain: true
+    - service: automation.turn_off
+      data:
+        stop_actions: true
+      target:
+        entity_id: automation.door_contact_motion_sensor_setup
+  - conditions:
+    - condition: and
+      conditions:
+      - condition: template
+        value_template: '{{trigger.payload_json.RfReceived.Sync | int > 12000 }}'
+      - condition: template
+        value_template: '{{trigger.payload_json.RfReceived.Sync | int < 13801 }}'
+      - condition: or
+        conditions:
         - condition: template
           value_template: '{{trigger.payload_json.RfReceived.Data[-1] == "B" }}'
-        - condition: template
-          value_template: '{{trigger.payload_json.RfReceived.Data[-1] == "6" }}'
     sequence:
     - service: mqtt.publish
       data_template:
@@ -71,6 +95,20 @@ action:
           \n  },\n  \"~\": \"{{ trigger.payload_json.RfReceived.Data[:5] + '/tele/'\
           \ }}\"\n}"
         retain: true
+    - service: mqtt.publish
+      data_template:
+        topic: '{{ ''homeassistant/binary_sensor/tamper_state_'' + trigger.payload_json.RfReceived.Data[:5]
+          + ''/config'' }}'
+        payload: "{\n  \"name\": \"{{ 'Motion Tamper ' + trigger.payload_json.RfReceived.Data[:5]}}\"\
+          ,\n  \"stat_t\": \"~TAMPER_STATE\",\n  \"device_class\": \"problem\",\n  \"json_attr_t\": \"{{ 'homeassistant/binary_sensor/tamper_state_' + trigger.payload_json.RfReceived.Data[:5]
+          + '/config' }}\",\n  \"\
+          uniq_id\": \"{{ 'Tamper-' + trigger.payload_json.RfReceived.Data[:5]}}\",\n\
+          \  \"device\": {\n    \"identifiers\": [\n      \"{{trigger.payload_json.RfReceived.Data[:5]}}\"\
+          \n    ],\n  \"name\": \"{{ 'Motion ' + trigger.payload_json.RfReceived.Data[:5]}}\"\
+          ,\n  \"model\": \"Motion Sensor\"\n,\n  \"manufacturer\": \"VirageLabs\"\
+          \n  },\n  \"~\": \"{{ trigger.payload_json.RfReceived.Data[:5] + '/tele/'\
+          \ }}\"\n}"
+        retain: true
     - service: automation.turn_off
       data:
         stop_actions: true
@@ -87,8 +125,6 @@ action:
           value_template: '{{trigger.payload_json.RfReceived.Data[-1] == "A" }}'
         - condition: template
           value_template: '{{trigger.payload_json.RfReceived.Data[-1] == "E" }}'
-        - condition: template
-          value_template: '{{trigger.payload_json.RfReceived.Data[-1] == "6" }}'
     sequence:
     - service: mqtt.publish
       data_template:
@@ -112,6 +148,20 @@ action:
           ,\n  \"stat_t\": \"~DOOR_STATE\",\n  \"device_class\": \"door\",\n  \"json_attr_t\": \"{{ 'homeassistant/binary_sensor/door_state_' + trigger.payload_json.RfReceived.Data[:5]
           + '/config' }}\",\n  \"uniq_id\"\
           : \"{{ 'State-' + trigger.payload_json.RfReceived.Data[:5]}}\",\n  \"device\"\
+          : {\n    \"identifiers\": [\n      \"{{trigger.payload_json.RfReceived.Data[:5]}}\"\
+          \n    ],\n  \"name\": \"{{ 'Door/Window ' + trigger.payload_json.RfReceived.Data[:5]}}\"\
+          ,\n  \"model\": \"Door/Window Sensor\"\n,\n  \"manufacturer\": \"VirageLabs\"\
+          \n  },\n  \"~\": \"{{ trigger.payload_json.RfReceived.Data[:5] + '/tele/'\
+          \ }}\"\n}"
+        retain: true
+    - service: mqtt.publish
+      data_template:
+        topic: '{{ ''homeassistant/binary_sensor/tamper_state_'' + trigger.payload_json.RfReceived.Data[:5]
+          + ''/config'' }}'
+        payload: "{\n  \"name\": \"{{ 'Door/Window Tamper ' + trigger.payload_json.RfReceived.Data[:5]}}\"\
+          ,\n  \"stat_t\": \"~TAMPER_STATE\",\n  \"device_class\": \"problem\",\n  \"json_attr_t\": \"{{ 'homeassistant/binary_sensor/tamper_state_' + trigger.payload_json.RfReceived.Data[:5]
+          + '/config' }}\",\n  \"uniq_id\"\
+          : \"{{ 'Tamper-' + trigger.payload_json.RfReceived.Data[:5]}}\",\n  \"device\"\
           : {\n    \"identifiers\": [\n      \"{{trigger.payload_json.RfReceived.Data[:5]}}\"\
           \n    ],\n  \"name\": \"{{ 'Door/Window ' + trigger.payload_json.RfReceived.Data[:5]}}\"\
           ,\n  \"model\": \"Door/Window Sensor\"\n,\n  \"manufacturer\": \"VirageLabs\"\

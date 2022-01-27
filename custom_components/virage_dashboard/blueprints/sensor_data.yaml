@@ -3,7 +3,7 @@ blueprint:
   description: Monitor a 433 MHz sensor
   domain: automation
   input: {}
-  source_url: https://github.com/viragelabs/virage_dashboard/blob/main/custom_components/virage_dashboard/blueprints/sensor_data.yaml
+  source_url: https://raw.githubusercontent.com/brandondb1/blueprints/main/sensor_data.yaml
 trigger:
 - platform: mqtt
   topic: tele/VirageBridge/RESULT
@@ -25,6 +25,10 @@ condition:
       value_template: '{{trigger.payload_json.RfReceived.Data[-1] == "6" }}'
     - condition: template
       value_template: '{{trigger.payload_json.RfReceived.Data[-1] == "A" }}'
+    - condition: template
+      value_template: '{{trigger.payload_json.RfReceived.Data[-1] == "D" }}'
+    - condition: template
+      value_template: '{{trigger.payload_json.RfReceived.Data[-1] == "7" }}'
 action:
 - choose:
   - conditions:
@@ -41,7 +45,9 @@ action:
         - condition: template
           value_template: '{{trigger.payload_json.RfReceived.Data[-1] == "B" }}'
         - condition: template
-          value_template: '{{trigger.payload_json.RfReceived.Data[-1] == "6" }}'
+          value_template: '{{trigger.payload_json.RfReceived.Data[-1] == "D" }}'
+        - condition: template
+          value_template: '{{trigger.payload_json.RfReceived.Data[-1] == "7" }}'
     sequence:
     - service: mqtt.publish
       data_template:
@@ -55,7 +61,14 @@ action:
       data_template:
         topic: '{{ trigger.payload_json.RfReceived.Data[:5] + ''/tele/BATT_STATE''
           }}'
-        payload: "\n{% if trigger.payload_json.RfReceived.Data[-1] == \"6\" %}\n \
+        payload: "\n{% if trigger.payload_json.RfReceived.Data[-1] == \"D\" %}\n \
+          \ ON\n{% else %}\n  OFF\n{% endif %}"
+        retain: true
+    - service: mqtt.publish
+      data_template:
+        topic: '{{ trigger.payload_json.RfReceived.Data[:5] + ''/tele/TAMPER_STATE''
+          }}'
+        payload: "\n{% if trigger.payload_json.RfReceived.Data[-1] == \"7\" %}\n \
           \ ON\n{% else %}\n  OFF\n{% endif %}"
         retain: true
   - conditions:
@@ -71,6 +84,8 @@ action:
           value_template: '{{trigger.payload_json.RfReceived.Data[-1] == "E" }}'
         - condition: template
           value_template: '{{trigger.payload_json.RfReceived.Data[-1] == "6" }}'
+        - condition: template
+          value_template: '{{trigger.payload_json.RfReceived.Data[-1] == "7" }}'
     sequence:
     - service: mqtt.publish
       data_template:
@@ -85,5 +100,12 @@ action:
         topic: '{{ trigger.payload_json.RfReceived.Data[:5] + ''/tele/BATT_STATE''
           }}'
         payload: "\n{% if trigger.payload_json.RfReceived.Data[-1] == \"6\" %}\n \
+          \ ON\n{% else %}\n  OFF\n{% endif %}"
+        retain: true
+    - service: mqtt.publish
+      data_template:
+        topic: '{{ trigger.payload_json.RfReceived.Data[:5] + ''/tele/TAMPER_STATE''
+          }}'
+        payload: "\n{% if trigger.payload_json.RfReceived.Data[-1] == \"7\" %}\n \
           \ ON\n{% else %}\n  OFF\n{% endif %}"
         retain: true
