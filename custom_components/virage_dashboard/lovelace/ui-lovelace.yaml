@@ -171,6 +171,8 @@ views:
                   domain: binary_sensor
                 - name: "Motion Battery*"
                   domain: binary_sensor
+                - name: "Motion Tamper*"
+                  domain: binary_sensor
               include:
                 - domain: binary_sensor
                   attributes:
