@@ -1,0 +1,26 @@
+blueprint:
+  name: Log File Emergency Delete
+  description: 'Copy and delete log file if greater than 100 MB'
+  domain: automation
+  source_url: https://github.com/viragelabs/virage_dashboard/blob/main/custom_components/virage_dashboard/blueprints/log_file_emergency_delete.yaml
+trigger:
+  - platform: numeric_state
+    entity_id: sensor.home_assistant_log
+    above: '100'
+condition: []
+action:
+  - service: shell_command.copy_log
+    data: {}
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 60
+      milliseconds: 0
+  - service: shell_command.clear_log
+    data: {}
+  - service: notify.persistent_notification
+    data:
+      title: Log File Deleted Due to Size
+      message: The home-assistant.log file has been deleted to protect the system.  A
+        copy was made and named home-assistant-old.log.
+mode: single

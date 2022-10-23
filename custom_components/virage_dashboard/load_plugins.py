@@ -13,7 +13,7 @@ def load_plugins(hass, name):
     add_extra_js_url(hass, "/virage_dashboard/cards/auto-entities/auto-entities.js")
     add_extra_js_url(hass, "/virage_dashboard/cards/ext-weblink/ext-weblink.js")
     add_extra_js_url(hass, "/virage_dashboard/cards/vertical-stack-in-card/vertical-stack-in-card.js")
-    hass.http.register_static_path("/virage_dashboard/cards", hass.config.path(f"custom_components/{name}/cards"), True)
+    hass.http.register_static_path("/virage_dashboard/cards", hass.config.path(f"custom_components/virage_dashboard/cards"), True)
     
     for fname in os.listdir(hass.config.path("custom_components/virage_dashboard/blueprints")):
      if not os.path.isfile(hass.config.path("blueprints/automation/viragelabs/"+fname)):

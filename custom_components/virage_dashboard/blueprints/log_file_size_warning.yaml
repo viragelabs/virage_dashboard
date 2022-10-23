@@ -1,0 +1,17 @@
+blueprint:
+  name: Log File Size Warning
+  description: 'Warn when log file exceeds 50 MB'
+  domain: automation
+  source_url: https://github.com/viragelabs/virage_dashboard/blob/main/custom_components/virage_dashboard/blueprints/log_file_size_warning.yaml
+trigger:
+  - platform: numeric_state
+    entity_id: sensor.home_assistant_log
+    above: '50'
+condition: []
+action:
+  - service: notify.persistent_notification
+    data:
+      title: Log File Size Warning
+      message: The size of the log file has increased significantly.  Please go to
+        Configuration->Settings->Logs to check.
+mode: single
